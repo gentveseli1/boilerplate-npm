@@ -9,6 +9,8 @@ var fs = require('fs');
 var express = require('express');
 var app = express();
 
+let myapp = require('./myApp');
+
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function(req, res, next) {
     var allowedOrigins = ['https://narrow-plane.gomix.me', 'https://www.freecodecamp.com'];
@@ -57,7 +59,3 @@ app.use(function(err, req, res, next) {
 const listener = app.listen(process.env.PORT || 3000, function () {
   console.log("Node.js listening on port " + listener.address().port);
 });
-
-console.log("Hello World");
-
-const app = require('./myApp');
